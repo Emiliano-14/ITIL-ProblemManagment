@@ -60,7 +60,7 @@ def enviar_ticket_jira(equipo, procesos, errores, auth_log, uptime, hostname, ip
     auth = (JIRA_EMAIL, JIRA_API_TOKEN)
     headers = {"Accept": "application/json", "Content-Type": "application/json"}
     
-    fecha_actual = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+   fecha_actual = (datetime.datetime.utcnow() - datetime.timedelta(hours=6)).strftime("%Y-%m-%d %H:%M:%S")
     
     summary_text = f"[DIAGNÓSTICO RCA] Inspección Ubuntu - {equipo}"
     description_text = (
